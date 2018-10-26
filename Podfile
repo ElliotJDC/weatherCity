@@ -8,6 +8,7 @@ target 'weatherCity' do
   # Pods for weatherCity
   pod 'JCRSlideCollectionViewCell',        :git => 'https://github.com/JagCesar/JCRSlideCollectionViewCell',      :tag => '0.0.2'
   pod 'Moya',                              :git => 'https://github.com/Moya/Moya',                                :tag => '11.0.2'
+  pod 'ObjectMapper',                      :git => 'https://github.com/tristanhimmelman/ObjectMapper',            :tag => '3.4.0'
   pod 'Alamofire',                         '~> 4.7'
 
   target 'weatherCityTests' do
