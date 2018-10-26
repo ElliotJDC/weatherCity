@@ -129,8 +129,11 @@
 		8B26DBA82183564600AB439A /* weatherCity */ = {
 			isa = PBXGroup;
 			children = (
+				8B478BC3218366CC00632782 /* API */,
+				8B478BC2218366B900632782 /* Managers */,
+				8B478BC1218366B100632782 /* Categories */,
+				8B478BC0218366A400632782 /* Controllers */,
 				8B26DBA92183564600AB439A /* AppDelegate.swift */,
-				8B26DBAB2183564600AB439A /* ViewController.swift */,
 				8B26DBAD2183564600AB439A /* Main.storyboard */,
 				8B26DBB32183564700AB439A /* Assets.xcassets */,
 				8B26DBB52183564700AB439A /* LaunchScreen.storyboard */,
@@ -156,6 +159,35 @@
 				8B26DBCE2183564800AB439A /* Info.plist */,
 			);
 			path = weatherCityUITests;
+			sourceTree = "<group>";
+		};
+		8B478BC0218366A400632782 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8B26DBAB2183564600AB439A /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		8B478BC1218366B100632782 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		8B478BC2218366B900632782 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		8B478BC3218366CC00632782 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		AF6A77BCBDE7A97C9EE143AB /* Frameworks */ = {
