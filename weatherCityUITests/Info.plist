@@ -18,5 +18,7 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>L&apos;application utilise la geolocalisation de l&apos;ipad pour trouver la méteo ou que vous soyez</string>
 </dict>
 </plist>

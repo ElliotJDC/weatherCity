@@ -1,4 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14315.18" systemVersion="18A391" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="City" representedClassName="City" syncable="YES">
+        <attribute name="isCurrentPosition" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="geoloc" maxCount="1" deletionRule="Nullify" destinationEntity="Geoloc" inverseName="city" inverseEntity="Geoloc" syncable="YES"/>
+        <relationship name="weather" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Weather" inverseName="city" inverseEntity="Weather" syncable="YES"/>
+    </entity>
+    <entity name="Geoloc" representedClassName="Geoloc" syncable="YES">
+        <attribute name="latitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="longitude" attributeType="Double" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="city" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="City" inverseName="geoloc" inverseEntity="City" syncable="YES"/>
+        <relationship name="weather" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Weather" inverseName="geoloc" inverseEntity="Weather" syncable="YES"/>
+    </entity>
+    <entity name="Weather" representedClassName="Weather" syncable="YES">
+        <attribute name="date_of_request" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="for_date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="humidity" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="nebulocite" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="pression" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rain" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="snow_alerte" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="temperature" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="wind_average" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="wind_rafale" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="city" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="City" inverseName="weather" inverseEntity="City" syncable="YES"/>
+        <relationship name="geoloc" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Geoloc" inverseName="weather" inverseEntity="Geoloc" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="City" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="Geoloc" positionX="-54" positionY="9" width="128" height="105"/>
+        <element name="Weather" positionX="-36" positionY="45" width="128" height="225"/>
+    </elements>
 </model>

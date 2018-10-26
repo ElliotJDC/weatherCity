@@ -41,5 +41,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>L&apos;application utilise la géolocalisation pour pouvoir vous afficher la méteo ou que vous soyez</string>
 </dict>
 </plist>

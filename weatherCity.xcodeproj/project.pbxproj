@@ -10,6 +10,13 @@
 		206A9833529A3E3DF7536841 /* Pods_weatherCityUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1B2F916E905953299A9D17 /* Pods_weatherCityUITests.framework */; };
 		656F643EBD1A199D0F947538 /* Pods_weatherCity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9E4A686D7B3B46C233FBED /* Pods_weatherCity.framework */; };
 		7683C62680A3EDC492F01AE8 /* Pods_weatherCityTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFF92D0E4423878721B78E4C /* Pods_weatherCityTests.framework */; };
+		8B03DAF6218381910039EB52 /* City+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B03DAF0218381910039EB52 /* City+CoreDataClass.swift */; };
+		8B03DAF7218381910039EB52 /* City+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B03DAF1218381910039EB52 /* City+CoreDataProperties.swift */; };
+		8B03DAF8218381910039EB52 /* Geoloc+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B03DAF2218381910039EB52 /* Geoloc+CoreDataClass.swift */; };
+		8B03DAF9218381910039EB52 /* Geoloc+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B03DAF3218381910039EB52 /* Geoloc+CoreDataProperties.swift */; };
+		8B03DAFA218381910039EB52 /* Weather+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B03DAF4218381910039EB52 /* Weather+CoreDataClass.swift */; };
+		8B03DAFB218381910039EB52 /* Weather+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B03DAF5218381910039EB52 /* Weather+CoreDataProperties.swift */; };
+		8B03DAFD218382560039EB52 /* WeatherApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B03DAFC218382560039EB52 /* WeatherApi.swift */; };
 		8B26DBAA2183564600AB439A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B26DBA92183564600AB439A /* AppDelegate.swift */; };
 		8B26DBAC2183564600AB439A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B26DBAB2183564600AB439A /* ViewController.swift */; };
 		8B26DBAF2183564600AB439A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B26DBAD2183564600AB439A /* Main.storyboard */; };
@@ -18,6 +25,8 @@
 		8B26DBB72183564700AB439A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B26DBB52183564700AB439A /* LaunchScreen.storyboard */; };
 		8B26DBC22183564700AB439A /* weatherCityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B26DBC12183564700AB439A /* weatherCityTests.swift */; };
 		8B26DBCD2183564800AB439A /* weatherCityUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B26DBCC2183564800AB439A /* weatherCityUITests.swift */; };
+		8B478BC52183672200632782 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B478BC42183672200632782 /* CoreDataManager.swift */; };
+		8B478BC7218367B200632782 /* GeolocManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B478BC6218367B200632782 /* GeolocManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +53,13 @@
 		266F4FBFC43FAC4714F45EAD /* Pods-weatherCityTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weatherCityTests.debug.xcconfig"; path = "Target Support Files/Pods-weatherCityTests/Pods-weatherCityTests.debug.xcconfig"; sourceTree = "<group>"; };
 		666F7EF3404310DB47B7F67B /* Pods-weatherCityTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weatherCityTests.release.xcconfig"; path = "Target Support Files/Pods-weatherCityTests/Pods-weatherCityTests.release.xcconfig"; sourceTree = "<group>"; };
 		736A4BE9A5A3CCD3B5CD31F7 /* Pods-weatherCity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weatherCity.debug.xcconfig"; path = "Target Support Files/Pods-weatherCity/Pods-weatherCity.debug.xcconfig"; sourceTree = "<group>"; };
+		8B03DAF0218381910039EB52 /* City+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "City+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8B03DAF1218381910039EB52 /* City+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "City+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8B03DAF2218381910039EB52 /* Geoloc+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Geoloc+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8B03DAF3218381910039EB52 /* Geoloc+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Geoloc+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8B03DAF4218381910039EB52 /* Weather+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weather+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8B03DAF5218381910039EB52 /* Weather+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weather+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8B03DAFC218382560039EB52 /* WeatherApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherApi.swift; sourceTree = "<group>"; };
 		8B26DBA62183564600AB439A /* weatherCity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weatherCity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B26DBA92183564600AB439A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B26DBAB2183564600AB439A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +74,8 @@
 		8B26DBC82183564700AB439A /* weatherCityUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = weatherCityUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B26DBCC2183564800AB439A /* weatherCityUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weatherCityUITests.swift; sourceTree = "<group>"; };
 		8B26DBCE2183564800AB439A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B478BC42183672200632782 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		8B478BC6218367B200632782 /* GeolocManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeolocManager.swift; sourceTree = "<group>"; };
 		BE9E4A686D7B3B46C233FBED /* Pods_weatherCity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weatherCity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6CAB28F67F4D6421CA0ACAA /* Pods-weatherCity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weatherCity.release.xcconfig"; path = "Target Support Files/Pods-weatherCity/Pods-weatherCity.release.xcconfig"; sourceTree = "<group>"; };
 		DFF92D0E4423878721B78E4C /* Pods_weatherCityTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weatherCityTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +122,19 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		8B03DAEF2183816E0039EB52 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				8B03DAF0218381910039EB52 /* City+CoreDataClass.swift */,
+				8B03DAF1218381910039EB52 /* City+CoreDataProperties.swift */,
+				8B03DAF2218381910039EB52 /* Geoloc+CoreDataClass.swift */,
+				8B03DAF3218381910039EB52 /* Geoloc+CoreDataProperties.swift */,
+				8B03DAF4218381910039EB52 /* Weather+CoreDataClass.swift */,
+				8B03DAF5218381910039EB52 /* Weather+CoreDataProperties.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 		8B26DB9D2183564600AB439A = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +160,7 @@
 		8B26DBA82183564600AB439A /* weatherCity */ = {
 			isa = PBXGroup;
 			children = (
+				8B03DAEF2183816E0039EB52 /* Entities */,
 				8B478BC3218366CC00632782 /* API */,
 				8B478BC2218366B900632782 /* Managers */,
 				8B478BC1218366B100632782 /* Categories */,
@@ -179,6 +211,8 @@
 		8B478BC2218366B900632782 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				8B478BC42183672200632782 /* CoreDataManager.swift */,
+				8B478BC6218367B200632782 /* GeolocManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -186,6 +220,7 @@
 		8B478BC3218366CC00632782 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				8B03DAFC218382560039EB52 /* WeatherApi.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -384,13 +419,19 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-weatherCity/Pods-weatherCity-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/JCRSlideCollectionViewCell/JCRSlideCollectionViewCell.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JCRSlideCollectionViewCell.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -426,8 +467,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B03DAF6218381910039EB52 /* City+CoreDataClass.swift in Sources */,
+				8B03DAF9218381910039EB52 /* Geoloc+CoreDataProperties.swift in Sources */,
 				8B26DBAC2183564600AB439A /* ViewController.swift in Sources */,
+				8B03DAFB218381910039EB52 /* Weather+CoreDataProperties.swift in Sources */,
+				8B03DAF8218381910039EB52 /* Geoloc+CoreDataClass.swift in Sources */,
+				8B03DAFD218382560039EB52 /* WeatherApi.swift in Sources */,
+				8B03DAF7218381910039EB52 /* City+CoreDataProperties.swift in Sources */,
 				8B26DBB22183564600AB439A /* weatherCity.xcdatamodeld in Sources */,
+				8B03DAFA218381910039EB52 /* Weather+CoreDataClass.swift in Sources */,
+				8B478BC7218367B200632782 /* GeolocManager.swift in Sources */,
+				8B478BC52183672200632782 /* CoreDataManager.swift in Sources */,
 				8B26DBAA2183564600AB439A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
