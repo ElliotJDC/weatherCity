@@ -1,0 +1,6 @@
+framework module Pods_weatherCity {
+  umbrella header "Pods-weatherCity-umbrella.h"
+
+  export *
+  module * { export * }
+}

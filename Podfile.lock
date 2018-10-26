@@ -1,0 +1,22 @@
+PODS:
+  - JCRSlideCollectionViewCell (0.0.2)
+
+DEPENDENCIES:
+  - JCRSlideCollectionViewCell (from `https://github.com/JagCesar/JCRSlideCollectionViewCell`, tag `0.0.2`)
+
+EXTERNAL SOURCES:
+  JCRSlideCollectionViewCell:
+    :git: https://github.com/JagCesar/JCRSlideCollectionViewCell
+    :tag: 0.0.2
+
+CHECKOUT OPTIONS:
+  JCRSlideCollectionViewCell:
+    :git: https://github.com/JagCesar/JCRSlideCollectionViewCell
+    :tag: 0.0.2
+
+SPEC CHECKSUMS:
+  JCRSlideCollectionViewCell: 6b87ce77eb5bfcd9334bc2159e897a153b79ae08
+
+PODFILE CHECKSUM: d2d884c020e06531eda99cc70faafc705fd118a8
+
+COCOAPODS: 1.6.0.beta.1
