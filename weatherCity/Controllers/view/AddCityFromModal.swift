@@ -35,7 +35,9 @@ class AddCityFromModal: UIView {
     func configureView() {
         let screenSize = UIScreen.main.bounds.size
         self.frame = CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height)
+        self.accessibilityIdentifier = "AddModalAccessID"
         self.backGroundButton.frame = CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height)
+        self.backGroundButton.accessibilityIdentifier = "AddModelCloseButtonID"
         self.backGroundButton.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         self.backGroundButton.addTarget(self, action: #selector(AddCityFromModal.handleTapBackGroundButton(_:)), for: .touchUpInside)
         self.addSubview(self.backGroundButton)
@@ -46,6 +48,7 @@ class AddCityFromModal: UIView {
         self.addSubview(self.contentView)
         
         self.cityTextFild.frame = CGRect(x: 20, y: 40, width: 400 - 40, height: 60)
+        self.cityTextFild.accessibilityIdentifier = "AddCityTextFieldId"
         self.cityTextFild.layer.cornerRadius = 10.0
         self.cityTextFild.layer.borderColor = UIColor.darkGray.cgColor
         self.cityTextFild.layer.borderWidth = 1.5
@@ -56,6 +59,7 @@ class AddCityFromModal: UIView {
         self.contentView.addSubview(self.cityTextFild)
         
         self.validateButton.frame = CGRect(x: 150, y: 300, width: 100, height: 50)
+        self.validateButton.accessibilityIdentifier = "AddCityValidateButtonID"
         self.validateButton.backgroundColor = UIColor.clear
         self.validateButton.layer.cornerRadius = 10.0
         self.validateButton.layer.borderColor = UIColor.black.cgColor

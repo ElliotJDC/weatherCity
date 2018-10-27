@@ -1,9 +1,11 @@
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Alamofire" "${PODS_CONFIGURATION_BUILD_DIR}/Moya" "${PODS_CONFIGURATION_BUILD_DIR}/ObjectMapper" "${PODS_CONFIGURATION_BUILD_DIR}/Result"
+ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_CFLAGS = $(inherited) -iquote "${PODS_CONFIGURATION_BUILD_DIR}/Alamofire/Alamofire.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/Moya/Moya.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/ObjectMapper/ObjectMapper.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/Result/Result.framework/Headers"
-OTHER_LDFLAGS = $(inherited) -framework "Alamofire" -framework "Foundation" -framework "Moya" -framework "ObjectMapper" -framework "Result"
+LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Alamofire-library" "${PODS_CONFIGURATION_BUILD_DIR}/Moya-library" "${PODS_CONFIGURATION_BUILD_DIR}/ObjectMapper-library" "${PODS_CONFIGURATION_BUILD_DIR}/Result-library"
+OTHER_CFLAGS = $(inherited) -fmodule-map-file="${PODS_CONFIGURATION_BUILD_DIR}/Alamofire-library/Alamofire.modulemap" -fmodule-map-file="${PODS_CONFIGURATION_BUILD_DIR}/Moya-library/Moya.modulemap" -fmodule-map-file="${PODS_CONFIGURATION_BUILD_DIR}/ObjectMapper-library/ObjectMapper.modulemap" -fmodule-map-file="${PODS_CONFIGURATION_BUILD_DIR}/Result-library/Result.modulemap"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"Alamofire-library" -l"Moya-library" -l"ObjectMapper-library" -l"Result-library" -framework "Foundation"
+OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS -Xcc -fmodule-map-file="${PODS_CONFIGURATION_BUILD_DIR}/Alamofire-library/Alamofire.modulemap" -Xcc -fmodule-map-file="${PODS_CONFIGURATION_BUILD_DIR}/Moya-library/Moya.modulemap" -Xcc -fmodule-map-file="${PODS_CONFIGURATION_BUILD_DIR}/ObjectMapper-library/ObjectMapper.modulemap" -Xcc -fmodule-map-file="${PODS_CONFIGURATION_BUILD_DIR}/Result-library/Result.modulemap"
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
 PODS_ROOT = ${SRCROOT}/Pods
+SWIFT_INCLUDE_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Alamofire-library" "${PODS_CONFIGURATION_BUILD_DIR}/Moya-library" "${PODS_CONFIGURATION_BUILD_DIR}/ObjectMapper-library" "${PODS_CONFIGURATION_BUILD_DIR}/Result-library"

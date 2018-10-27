@@ -40,6 +40,14 @@ class CoreDataManager: NSObject {
         return container
     }()
     
+    lazy var persistentContainerForTest: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "CoreDataUnitTesting")
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            fatalError("Unresolved error \(String(describing: error))")
+        })
+        return container
+    }()
+    
     
     func saveContext () {
         let context = persistentContainer.viewContext
@@ -54,4 +62,5 @@ class CoreDataManager: NSObject {
             }
         }
     }
+    
 }

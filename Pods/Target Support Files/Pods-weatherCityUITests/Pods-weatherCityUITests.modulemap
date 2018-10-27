@@ -1,4 +1,4 @@
-framework module Pods_weatherCityUITests {
+module Pods_weatherCityUITests {
   umbrella header "Pods-weatherCityUITests-umbrella.h"
 
   export *

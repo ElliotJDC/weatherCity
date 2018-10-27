@@ -12,12 +12,13 @@ target 'weatherCity' do
 
   target 'weatherCityTests' do
     inherit! :search_paths
-    # Pods for testing
   end
 
-  target 'weatherCityUITests' do
+end
+
+target 'weatherCityUITests' do
     inherit! :search_paths
-    # Pods for testing
-  end
-
+    pod 'Moya',                              :git => 'https://github.com/Moya/Moya',                                :tag => '11.0.2'
+    pod 'ObjectMapper',                      :git => 'https://github.com/tristanhimmelman/ObjectMapper',            :tag => '3.4.0'
+    pod 'Alamofire',                         '~> 4.7'
 end

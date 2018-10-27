@@ -2,7 +2,7 @@
 //  Geoloc+CoreDataProperties.swift
 //  weatherCity
 //
-//  Created by Elliot Cunningham on 26/10/2018.
+//  Created by Elliot Cunningham on 27/10/2018.
 //  Copyright © 2018 Elliot Cunningham. All rights reserved.
 //
 //

@@ -39,6 +39,7 @@ class WeatherDetailView: UIView {
     }
     
     func loadNibView() {
+        self.accessibilityIdentifier = "DetailWeatherViewID"
         Bundle.main.loadNibNamed("WeatherDetailView", owner: self, options: nil)
         self.addSubview(contentView)
         contentView.frame = self.bounds
