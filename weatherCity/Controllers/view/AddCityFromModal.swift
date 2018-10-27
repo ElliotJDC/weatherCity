@@ -40,7 +40,7 @@ class AddCityFromModal: UIView {
         self.backGroundButton.addTarget(self, action: #selector(AddCityFromModal.handleTapBackGroundButton(_:)), for: .touchUpInside)
         self.addSubview(self.backGroundButton)
         
-        self.contentView.frame = CGRect(x: screenSize.width/2 - 200, y: screenSize.height/2 - 200, width: 400, height: 400)
+        self.contentView.frame = CGRect(x: screenSize.width/2 - 200, y: 100, width: 400, height: 400)
         self.contentView.backgroundColor = UIColor.white
         self.contentView.layer.cornerRadius = 10.0
         self.addSubview(self.contentView)
@@ -52,6 +52,7 @@ class AddCityFromModal: UIView {
         self.cityTextFild.backgroundColor = UIColor.clear
         self.cityTextFild.textAlignment = .center
         self.cityTextFild.placeholder = "Saisissez le nom de la ville que vous souhaiter rajouter"
+        self.cityTextFild.delegate = self
         self.contentView.addSubview(self.cityTextFild)
         
         self.validateButton.frame = CGRect(x: 150, y: 300, width: 100, height: 50)
@@ -85,6 +86,12 @@ extension AddCityFromModal {
         delegate.handleTapAddCityButton(city, self)
     }
     
+}
+
+extension AddCityFromModal : UITextFieldDelegate {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.endEditing(true)
+    }
 }
 
 
