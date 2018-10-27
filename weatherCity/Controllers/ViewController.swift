@@ -105,6 +105,7 @@ extension ViewController : UICollectionViewDataSource, UICollectionViewDelegate,
         
         cell.isReadyForShow = (weather == nil) ? false : true
         cell.city = city?.name
+        cell.cityObject = city
         if let weather = weather {
             cell.weather = weather
             cell.temperature = String(weather.temperature.rounded()) + "°C"
@@ -139,8 +140,13 @@ extension ViewController : UICollectionViewDataSource, UICollectionViewDelegate,
             fatalError("error in index path")
         }
         
-        if let weather = cell.weather, let detailWeatherView = self.detailWeatherView {
-            self.detailWeatherView?.currentWeather = weather
+        if let detailWeatherView = self.detailWeatherView {
+            detailWeatherView.currentCity = nil
+            detailWeatherView.currentWeather = nil
+            if let weather = cell.weather {
+                self.detailWeatherView?.currentWeather = weather
+            }
+            self.detailWeatherView?.currentCity = cell.cityObject
             self.detailWeatherView?.reloadData()
             self.view.addSubview(detailWeatherView)
         }

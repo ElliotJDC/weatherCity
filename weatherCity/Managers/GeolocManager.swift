@@ -89,7 +89,7 @@ extension GeolocManager : CLLocationManagerDelegate {
                 if let placeMark = placeMarks?[0] {
                     guard let city = placeMark.locality else { return }
                     
-                    _ = City.city(name: city, location: coordinateStruct)
+                    _ = City.newCurrentCity(name: city, location: coordinateStruct)
                 }
             }
             

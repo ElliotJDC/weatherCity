@@ -11,6 +11,7 @@ import UIKit
 class WeatherDetailView: UIView {
     
     var currentWeather:Weather?
+    var currentCity:City?
 
     @IBOutlet var contentView: UIView!
     
@@ -50,10 +51,20 @@ class WeatherDetailView: UIView {
         self.closeButton.layer.cornerRadius = 10
         self.closeButton.layer.borderWidth = 1.5
         self.closeButton.layer.borderColor = self.closeButton.titleLabel?.textColor.cgColor
+        
     }
     
     public func reloadData() -> Void {
         guard let weather = self.currentWeather else {
+            self.cityNameLabel.text = ""
+            self.nebuliteLabel.text  = ""
+            self.temperatureLabel.text  = ""
+            self.pressionLabel.text  = ""
+            self.humidityLabel.text  = ""
+            self.precipitationLabel.text  = ""
+            self.windLabel.text  = ""
+            self.warningSnowLabel.text  = ""
+            
             return
         }
         
@@ -79,10 +90,7 @@ class WeatherDetailView: UIView {
     }
 
     @IBAction func handleTapDeletteButton(_ sender: Any) {
-        guard let weather = self.currentWeather else {
-            return
-        }
-        guard let city = weather.city else {
+        guard let city = self.currentCity else {
             return
         }
         

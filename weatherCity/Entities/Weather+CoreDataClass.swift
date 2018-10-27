@@ -21,8 +21,9 @@ public class Weather: NSManagedObject {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         self.removeAllWeather(city:city)
         WeatherHttpManager.sharedManager.getDataMeteoForCoordinate(latitude: coordonate.latitude, longitude: coordonate.longitude) { (dictionary) in
-            
-            guard let dict = dictionary else { return }
+            guard let dict = dictionary else {
+                return
+            }
             
             for key:String in dict.keys {
                 guard let weatherDict = dict[key] as? [String:Any] else {

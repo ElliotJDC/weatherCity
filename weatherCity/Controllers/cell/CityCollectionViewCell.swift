@@ -16,6 +16,7 @@ class CityCollectionViewCell: UICollectionViewCell {
     public var wind:String?
     public var image:UIImage?
     public var weather:Weather?
+    public var cityObject:City?
     
     var activutyView:UIActivityIndicatorView?
     

@@ -15,9 +15,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         
+        if UserDefaults.standard.value(forKey: "kNeedReloadData") == nil {
+            UserDefaults.standard.set(false, forKey: "kNeedReloadData")
+            UserDefaults.standard.synchronize()
+        }
+        
+        let timer = Timer.scheduledTimer(withTimeInterval: 7200.0, repeats: true) { (_) in
+            City.reloadWeatherDataIfNeeded()
+        }
         _ = GeolocManager.sharedManager
+        
+        timer.fire()
         
         return true
     }
@@ -43,6 +52,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
+        UserDefaults.standard.set(true, forKey: "kNeedReloadData")
+        UserDefaults.standard.synchronize()
         CoreDataManager.sharedManager.saveContext()
     }
 

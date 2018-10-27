@@ -85,6 +85,15 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="cjY-2P-Tgf"/>
                                 </connections>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toute les données méteo sont issues du site www.infoclimat.fr" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdx-mU-Xkq">
+                                <rect key="frame" x="20" y="647" width="335" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Ghc-di-sNU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -92,6 +101,9 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bpx-Gz-gk5" secondAttribute="trailing" constant="40" id="7xa-8B-syc"/>
                             <constraint firstItem="bpx-Gz-gk5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="LSL-CM-KTs"/>
                             <constraint firstItem="bpx-Gz-gk5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="eTI-sF-b5K"/>
+                            <constraint firstItem="tdx-mU-Xkq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="l9H-E5-jLU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tdx-mU-Xkq" secondAttribute="trailing" constant="20" id="vra-jN-0C7"/>
+                            <constraint firstItem="tdx-mU-Xkq" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ybl-FX-SVM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
