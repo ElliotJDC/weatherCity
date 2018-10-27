@@ -1,6 +1,0 @@
-framework module JCRSlideCollectionViewCell {
-  umbrella header "JCRSlideCollectionViewCell-umbrella.h"
-
-  export *
-  module * { export * }
-}
