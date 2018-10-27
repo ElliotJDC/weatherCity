@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 import Moya
 
-let authToken:String = "ARsEEwB%2BASMHKgM0AXcBKFkxAjcLfQYhBHgFZgtuBXgFbgRlUzNTNQJsAXwEKwI0VHkEZwA7U2MFbgtzCnhXNgFrBGgAawFmB2gDZgEuASpZdwJjCysGIQRuBWILeAVgBWUEflMyUzMCaQF9BDYCPlR4BHsAPlNuBWILbApiVzIBYwRoAGcBYgd3A34BNAFnWT4CYQs1BmwENQVjC2cFYQVhBGNTOVM4AnMBZAQxAjdUZQRgAD1TawVnC3MKeFdNAREEfQAjASEHPQMnASwBYFk0AjY%3D"
+let authToken = "?_auth=ARsEEwB%2BASMHKgM0AXcBKFkxAjcLfQYhBHgFZgtuBXgFbgRlUzNTNQJsAXwEKwI0VHkEZwA7U2MFbgtzCnhXNgFrBGgAawFmB2gDZgEuASpZdwJjCysGIQRuBWILeAVgBWUEflMyUzMCaQF9BDYCPlR4BHsAPlNuBWILbApiVzIBYwRoAGcBYgd3A34BNAFnWT4CYQs1BmwENQVjC2cFYQVhBGNTOVM4AnMBZAQxAjdUZQRgAD1TawVnC3MKeFdNAREEfQAjASEHPQMnASwBYFk0AjY%3D&_c=b9731b25376511fe1906248f08b0ab32&_ll="
 
 enum WeatherApi {
     case getWeatherJSON(String)
@@ -40,7 +40,7 @@ extension WeatherApi : TargetType {
         switch self {
             
         case .getWeatherJSON:
-            return ["content-type" : "application/json"]
+            return ["content-type" : "application/x-www-form-urlencoded", "charset" : "utf-8"]
         case .getWeatherCSV:
             return ["content-type" : "application/csv"]
         case .getWeatherXML:
@@ -52,17 +52,17 @@ extension WeatherApi : TargetType {
     
     
     var baseURL:URL {
-        return URL(string: "http://www.infoclimat.fr/public-api/gfs/")!
+        return URL(string: "https://www.infoclimat.fr/public-api/gfs/")!
     }
     
     var path:String {
         switch self {
-        case .getWeatherJSON:
-            return "json"
-        case .getWeatherCSV:
-            return "csv"
-        case .getWeatherXML:
-            return "xml"
+        case .getWeatherJSON(let coordinateString):
+            return "json" + authToken + coordinateString
+        case .getWeatherCSV(let coordinateString):
+            return "csv" + authToken + coordinateString
+        case .getWeatherXML(let coordinateString):
+            return "xml" + authToken + coordinateString
         }
     }
     
@@ -90,7 +90,7 @@ extension WeatherApi : TargetType {
     }
     
     var task: Task {
-        return .requestParameters(parameters: self.params, encoding: URLEncoding())
+        return .requestPlain
     }
     
 }
@@ -105,7 +105,7 @@ extension WeatherApi {
     }
     
     public func url(_ route:TargetType) -> String {
-        return route.baseURL.appendingPathComponent(route.path).absoluteString
+        return route.baseURL.absoluteString + route.path
     }
     
 }

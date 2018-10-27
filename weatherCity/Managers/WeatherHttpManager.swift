@@ -14,6 +14,8 @@ import ObjectMapper
 
 class WeatherHttpManager: NSObject {
     
+    static let sharedManager:WeatherHttpManager = WeatherHttpManager()
+    
     var weatherProvider:MoyaProvider<WeatherApi>!
     
     
@@ -27,8 +29,8 @@ class WeatherHttpManager: NSObject {
         }
     }
     
-    var endpointClosure = { (target: WeatherApi) -> Endpoint in
-        let url = target.baseURL.appendingPathComponent(target.path).absoluteString
+    let endpointClosure = { (target: WeatherApi) -> Endpoint in
+        let url = target.baseURL.absoluteString + target.path
         
         let endpoint: Endpoint = Endpoint(url: url, sampleResponseClosure: { () -> EndpointSampleResponse in
             .networkResponse(200, target.sampleData)
@@ -85,8 +87,16 @@ class WeatherHttpManager: NSObject {
                 return
             }
             
-            print(dictionary)
-            completion(dictionary)
+            guard let codeStatus:NSNumber = dictionary["request_state"] as? NSNumber else {
+                completion(nil)
+                return
+            }
+            
+            if codeStatus.isEqual(to: NSNumber(integerLiteral: 200)) {
+                completion(dictionary)
+            }
+            
+            completion(nil)
             
         }) { (weatherError, status, error) in
             guard let weatherError = weatherError,

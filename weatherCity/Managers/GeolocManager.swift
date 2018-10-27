@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-struct Coordinate {
+public struct Coordinate {
     let latitude: Double
     let longitude:Double
     let findedDate:Date
@@ -79,6 +79,19 @@ extension GeolocManager : CLLocationManagerDelegate {
             let coordinateStruct = Coordinate(latitude: coordinate.latitude, longitude: coordinate.longitude, findedDate: Date())
             
             self.lastCoordinateKnow = coordinateStruct
+            
+            self.geocoder.reverseGeocodeLocation(location) { (placeMarks, error) in
+                
+                if let error = error {
+                    print("error on get placeMark from location", error)
+                    return
+                }
+                if let placeMark = placeMarks?[0] {
+                    guard let city = placeMark.locality else { return }
+                    
+                    _ = City.city(name: city, location: coordinateStruct)
+                }
+            }
             
         }
         
