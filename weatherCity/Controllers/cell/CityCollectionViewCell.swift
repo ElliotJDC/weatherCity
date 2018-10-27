@@ -43,6 +43,8 @@ class CityCollectionViewCell: UICollectionViewCell {
         self.wind = nil
         self.isReadyForShow = false
         self.image = nil
+        self.cityObject = nil
+        self.weather = nil
     }
     
     

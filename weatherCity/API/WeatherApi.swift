@@ -12,6 +12,9 @@ import Moya
 
 let authToken = "?_auth=ARsEEwB%2BASMHKgM0AXcBKFkxAjcLfQYhBHgFZgtuBXgFbgRlUzNTNQJsAXwEKwI0VHkEZwA7U2MFbgtzCnhXNgFrBGgAawFmB2gDZgEuASpZdwJjCysGIQRuBWILeAVgBWUEflMyUzMCaQF9BDYCPlR4BHsAPlNuBWILbApiVzIBYwRoAGcBYgd3A34BNAFnWT4CYQs1BmwENQVjC2cFYQVhBGNTOVM4AnMBZAQxAjdUZQRgAD1TawVnC3MKeFdNAREEfQAjASEHPQMnASwBYFk0AjY%3D&_c=b9731b25376511fe1906248f08b0ab32&_ll="
 
+
+// Weather APi is a simple enum with mutiple swith for get good url
+
 enum WeatherApi {
     case getWeatherJSON(String)
     case getWeatherCSV(String)
@@ -66,6 +69,8 @@ extension WeatherApi : TargetType {
         }
     }
     
+    
+    // params is not use because Moya encode url ass url but we need to conserve the utf8 format
     var params:[String:String]! {
         switch self {
         case .getWeatherJSON(let locationString):
@@ -89,6 +94,7 @@ extension WeatherApi : TargetType {
         }
     }
     
+    // return an Alamofire fire Task
     var task: Task {
         return .requestPlain
     }

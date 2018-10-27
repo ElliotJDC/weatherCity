@@ -50,6 +50,7 @@ class AddCityFromModal: UIView {
         self.cityTextFild.layer.borderColor = UIColor.darkGray.cgColor
         self.cityTextFild.layer.borderWidth = 1.5
         self.cityTextFild.backgroundColor = UIColor.clear
+        self.cityTextFild.textAlignment = .center
         self.cityTextFild.placeholder = "Saisissez le nom de la ville que vous souhaiter rajouter"
         self.contentView.addSubview(self.cityTextFild)
         

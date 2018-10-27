@@ -14,8 +14,7 @@ import CoreData
 public class Weather: NSManagedObject {
     
     
-    // 2018-10-26 11:00:00
-    
+    // fetch weather data check if result is good for all weather by time create new weather object
     public class func fetchDataWeather(coordonate:Coordinate, city:City) -> Void {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -43,6 +42,8 @@ public class Weather: NSManagedObject {
         }
     }
     
+    // func for create new weather from a dict func check all data before create object
+    
     public class func createNewWeather(dict:[String:Any], city:City, date:Date) -> Weather? {
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         let weather = Weather(context: context)
@@ -55,8 +56,6 @@ public class Weather: NSManagedObject {
         guard let humidity = humiditys["2m"] as? NSNumber else { return nil }
         guard let windRafales = dict["vent_rafales"] as? [String:Any] else { return nil }
         guard let windRafale = windRafales["10m"] as? NSNumber else { return nil }
-        guard let windDirections = dict["vent_direction"] as? [String:Any] else { return nil }
-        guard let windDirection = windDirections["10m"] as? NSNumber else { return nil }
         guard let nebulosites = dict["nebulosite"] as? [String:Any] else { return nil }
         guard let nebulosite = nebulosites["totale"] as? NSNumber else { return nil }
         guard let windAverages = dict["vent_moyen"] as? [String:Any] else { return nil}
@@ -84,6 +83,7 @@ public class Weather: NSManagedObject {
         return weather
     }
     
+    // func for remove all weather data for a specified city
     class func removeAllWeather(city:City) {
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         let request:NSFetchRequest = Weather.fetchRequest()
@@ -103,6 +103,9 @@ public class Weather: NSManagedObject {
         
     }
     
+    
+    //    func for get good weather in weather array
+    // function check date for get the good weather
     class func findGoodWeatherForDate(date:Date, weathers:[Weather]) -> Weather? {
         var intervalBetwenDate:TimeInterval?
         var finalWeather:Weather?

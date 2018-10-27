@@ -69,6 +69,7 @@ extension GeolocManager : CLLocationManagerDelegate {
         print("location manager start")
     }
     
+    // if find a location check if city exist if city is null we create new city
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("find a location manager")
         if locations.count != 0 {
@@ -104,6 +105,7 @@ extension GeolocManager : CLLocationManagerDelegate {
 
 extension GeolocManager {
     
+    // get city coordanate by name
     public func getCoordinate(addressString:String, completion:@escaping(_ latitude:Double, _ longitude:Double ) -> Void ) -> Void {
         
         self.geocoder.geocodeAddressString(addressString) { (placemarks, error) in

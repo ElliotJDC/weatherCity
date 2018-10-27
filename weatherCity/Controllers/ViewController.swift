@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var cityCollectionView: UICollectionView!
     @IBOutlet weak var navigationItemView: UINavigationItem!
     
-    
+    // on view did load load all city and configure view and subview
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadCitys()
@@ -30,6 +30,8 @@ class ViewController: UIViewController {
 
     }
     
+    
+    // if screen oriantation change we reload all cell and subview for get good frame
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         self.scrennSize = UIScreen.main.bounds.size
@@ -62,6 +64,7 @@ class ViewController: UIViewController {
 
 extension ViewController : NSFetchedResultsControllerDelegate {
     
+    // load all city present on CoreData
     func loadCitys() -> Void {
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         let fetchRequest:NSFetchRequest<City> = City.fetchRequest()
@@ -77,6 +80,9 @@ extension ViewController : NSFetchedResultsControllerDelegate {
         }
     }
     
+    
+    // if FRC city change we reload all cell
+    // need optimisation
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.cityCollectionView.reloadData()
     }
@@ -84,7 +90,7 @@ extension ViewController : NSFetchedResultsControllerDelegate {
     
 }
 
-// MARK: CoreDataStack
+// MARK: cell view controller
 
 extension ViewController : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
@@ -164,8 +170,12 @@ extension ViewController {
 }
 
 extension ViewController : AddCityDelegate {
+    
+    // if add button is touch we show a simple modal enter new city name
     func handleTapAddCityButton(_ cityName: String, _ view: AddCityFromModal) {
         view.removeFromSuperview()
+        
+        // search coordonate of city with city name
         GeolocManager.sharedManager.getCoordinate(addressString: cityName) { (latitude, longitude) in
             
             if latitude != 0 && longitude != 0 {

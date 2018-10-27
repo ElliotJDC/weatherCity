@@ -18,7 +18,7 @@ class WeatherHttpManager: NSObject {
     
     var weatherProvider:MoyaProvider<WeatherApi>!
     
-    
+    // test url before lunch full request
     let requestClosure = { (endpoint: Moya.Endpoint, done: MoyaProvider.RequestResultClosure) in
         do {
             var request = try endpoint.urlRequest()
@@ -29,6 +29,7 @@ class WeatherHttpManager: NSObject {
         }
     }
     
+    // full url request
     let endpointClosure = { (target: WeatherApi) -> Endpoint in
         let url = target.baseURL.absoluteString + target.path
         
@@ -74,6 +75,7 @@ class WeatherHttpManager: NSObject {
         }
     }
     
+    // send request with coordonate as Params for get weather
     func getDataMeteoForCoordinate(latitude:Double, longitude:Double, completion:@escaping(_ weatherDic:[String:Any]?) -> Void) -> Void {
         
         let stringCoordinate = String(latitude) + "," + String(longitude)

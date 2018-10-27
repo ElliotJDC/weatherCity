@@ -13,6 +13,8 @@ import CoreData
 @objc(Geoloc)
 public class Geoloc: NSManagedObject {
     
+    
+    // create new Geoloc 
     public class func geoloc(coordinate:Coordinate) -> Geoloc {
         let geoloc = Geoloc(context: CoreDataManager.sharedManager.persistentContainer.viewContext)
         geoloc.latitude = coordinate.latitude
