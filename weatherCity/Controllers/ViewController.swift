@@ -215,6 +215,12 @@ extension ViewController : AddCityDelegate {
                 let coordonate = Coordinate(latitude: latitude, longitude: longitude, findedDate: Date())
                 _ = City.createNewCity(cityName: cityName, location: coordonate)
             }
+            else {
+                let alert:UIAlertController = UIAlertController(title: "Info", message: "Aucune ville trouver avec ce nom", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Fermer", style: .default, handler: nil))
+                
+                self.present(alert, animated: true, completion: nil)
+            }
             
         }
     }
