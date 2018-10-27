@@ -71,7 +71,6 @@ extension GeolocManager : CLLocationManagerDelegate {
     
     // if find a location check if city exist if city is null we create new city
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("find a location manager")
         if locations.count != 0 {
             
             let location:CLLocation = locations[0]

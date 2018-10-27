@@ -48,8 +48,6 @@ public class Weather: NSManagedObject {
         let context = CoreDataManager.sharedManager.persistentContainer.viewContext
         let weather = Weather(context: context)
         
-        print(dict)
-        
         guard let temperatures = dict["temperature"] as? [String:Any] else {  return nil }
         guard let temperature = temperatures["sol"] as? NSNumber else { return nil }
         guard let humiditys = dict["humidite"] as? [String:Any] else { return nil }
