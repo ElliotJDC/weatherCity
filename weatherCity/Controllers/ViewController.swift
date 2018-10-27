@@ -54,10 +54,12 @@ class ViewController: UIViewController {
         self.navigationItemView.setRightBarButton(item, animated: true)
         
         self.cityCollectionView.setCollectionViewLayout(layout, animated: true)
-        self.cityCollectionView.reloadData()
     }
 
-
+    @IBAction func handleTapInfoApiButton(_ sender: Any) {
+        
+    }
+    
 }
 
 // MARK: CoreData Stack,
@@ -199,6 +201,10 @@ extension ViewController {
         self.addCityView.delegate = self
         self.addCityView.cityTextFild.text = ""
         self.view.addSubview(self.addCityView)
+    }
+    
+    @objc func handleTapInfoApiLabel(_ sender:Any) -> Void {
+        
     }
 }
 

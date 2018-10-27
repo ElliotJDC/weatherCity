@@ -25,6 +25,7 @@
 		8B26DBB72183564700AB439A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B26DBB52183564700AB439A /* LaunchScreen.storyboard */; };
 		8B26DBC22183564700AB439A /* weatherCityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B26DBC12183564700AB439A /* weatherCityTests.swift */; };
 		8B26DBCD2183564800AB439A /* weatherCityUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B26DBCC2183564800AB439A /* weatherCityUITests.swift */; };
+		8B4038D4218513FA008734F9 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4038D3218513FA008734F9 /* WebView.swift */; };
 		8B478BC52183672200632782 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B478BC42183672200632782 /* CoreDataManager.swift */; };
 		8B478BC7218367B200632782 /* GeolocManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B478BC6218367B200632782 /* GeolocManager.swift */; };
 		8B82D4B5218487BB00F8140B /* AddCityFromModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B82D4B4218487BB00F8140B /* AddCityFromModal.swift */; };
@@ -77,6 +78,7 @@
 		8B26DBC82183564700AB439A /* weatherCityUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = weatherCityUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B26DBCC2183564800AB439A /* weatherCityUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weatherCityUITests.swift; sourceTree = "<group>"; };
 		8B26DBCE2183564800AB439A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B4038D3218513FA008734F9 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		8B478BC42183672200632782 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		8B478BC6218367B200632782 /* GeolocManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeolocManager.swift; sourceTree = "<group>"; };
 		8B82D4B4218487BB00F8140B /* AddCityFromModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCityFromModal.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				8B82D4B4218487BB00F8140B /* AddCityFromModal.swift */,
 				8B82D4BA2184972500F8140B /* WeatherDetailView.xib */,
 				8B82D4BC21849A7000F8140B /* WeatherDetailView.swift */,
+				8B4038D3218513FA008734F9 /* WebView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -511,6 +514,7 @@
 				8B03DAFD218382560039EB52 /* WeatherApi.swift in Sources */,
 				8B26DBB22183564600AB439A /* weatherCity.xcdatamodeld in Sources */,
 				8B03DAFA218381910039EB52 /* Weather+CoreDataClass.swift in Sources */,
+				8B4038D4218513FA008734F9 /* WebView.swift in Sources */,
 				8B478BC7218367B200632782 /* GeolocManager.swift in Sources */,
 				8B82D4C12184C07F00F8140B /* City+CoreDataProperties.swift in Sources */,
 				8B478BC52183672200632782 /* CoreDataManager.swift in Sources */,

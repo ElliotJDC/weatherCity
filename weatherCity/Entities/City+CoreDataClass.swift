@@ -48,7 +48,8 @@ public class City: NSManagedObject {
             let citys:[City] = try context.fetch(request)
             for aCity in citys {
                 if aCity.isCurrentPosition {
-                    aCity.isCurrentPosition = false
+                    context.delete(aCity)
+                    break
                 }
             }
             

@@ -85,25 +85,29 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="cjY-2P-Tgf"/>
                                 </connections>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toute les données méteo sont issues du site www.infoclimat.fr" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdx-mU-Xkq">
-                                <rect key="frame" x="20" y="647" width="335" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="Ghc-di-sNU"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="79T-cy-Wfi">
+                                <rect key="frame" x="10" y="627" width="355" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <state key="normal" title="Toute les données méteo sont issues du site www.infoclimat.fr">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="handleTapInfoApiButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="m75-hb-c7S"/>
+                                    <segue destination="1tp-hB-sor" kind="show" id="UNd-ZE-juT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="bpx-Gz-gk5" secondAttribute="bottom" constant="40" id="7fg-K3-KeF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bpx-Gz-gk5" secondAttribute="trailing" constant="40" id="7xa-8B-syc"/>
+                            <constraint firstItem="79T-cy-Wfi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="9AB-AL-H59"/>
                             <constraint firstItem="bpx-Gz-gk5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="LSL-CM-KTs"/>
                             <constraint firstItem="bpx-Gz-gk5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="eTI-sF-b5K"/>
-                            <constraint firstItem="tdx-mU-Xkq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="l9H-E5-jLU"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tdx-mU-Xkq" secondAttribute="trailing" constant="20" id="vra-jN-0C7"/>
-                            <constraint firstItem="tdx-mU-Xkq" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ybl-FX-SVM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="79T-cy-Wfi" secondAttribute="trailing" constant="10" id="jR6-vL-sCg"/>
+                            <constraint firstItem="79T-cy-Wfi" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="prj-rj-Ckk"/>
+                            <constraint firstItem="79T-cy-Wfi" firstAttribute="top" secondItem="bpx-Gz-gk5" secondAttribute="bottom" id="zGv-vF-jdF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -116,6 +120,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="992.79999999999995" y="33.733133433283363"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="wwG-3g-Ngl">
+            <objects>
+                <viewController id="1tp-hB-sor" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mzd-Xq-IbB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g2l-Vn-QJv" customClass="WebView" customModule="weatherCity" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="j73-2q-0V3" firstAttribute="bottom" secondItem="g2l-Vn-QJv" secondAttribute="bottom" id="Q1T-sG-BaG"/>
+                            <constraint firstItem="g2l-Vn-QJv" firstAttribute="top" secondItem="j73-2q-0V3" secondAttribute="top" id="ZgN-4x-K2k"/>
+                            <constraint firstItem="g2l-Vn-QJv" firstAttribute="leading" secondItem="j73-2q-0V3" secondAttribute="leading" id="keX-dI-TBy"/>
+                            <constraint firstItem="j73-2q-0V3" firstAttribute="trailing" secondItem="g2l-Vn-QJv" secondAttribute="trailing" id="phh-o2-sVF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="j73-2q-0V3"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KlG-6I-FNL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1902" y="34"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GtV-cl-8jw">
