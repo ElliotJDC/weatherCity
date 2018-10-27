@@ -14,6 +14,8 @@ class CityCollectionViewCell: UICollectionViewCell {
     public var city:String?
     public var temperature:String?
     public var wind:String?
+    public var image:UIImage?
+    public var weather:Weather?
     
     var activutyView:UIActivityIndicatorView?
     
@@ -39,6 +41,7 @@ class CityCollectionViewCell: UICollectionViewCell {
         self.temperature = nil
         self.wind = nil
         self.isReadyForShow = false
+        self.image = nil
     }
     
     
@@ -52,7 +55,15 @@ class CityCollectionViewCell: UICollectionViewCell {
     
     func reloadView() {
         if isReadyForShow {
+            self.backgroundImage.image = self.image
+            self.cityLabel.isHidden = false
+            self.temperatureLabel.isHidden = false
+            self.windLabel.isHidden = false
+            self.backgroundImage.isHidden = false
             
+            self.cityLabel.text = self.city
+            self.temperatureLabel.text = self.temperature
+            self.windLabel.text = self.wind
         }
         else {
             if let activityView = self.activutyView {

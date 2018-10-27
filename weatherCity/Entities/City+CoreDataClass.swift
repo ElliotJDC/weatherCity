@@ -47,11 +47,28 @@ public class City: NSManagedObject {
             geoloc.city = city
             city?.geoloc = geoloc
             
+            Weather.fetchDataWeather(coordonate: location, city: city!)
+            
             CoreDataManager.sharedManager.saveContext()
         }
         
-        Weather.fetchDataWeather(coordonate: location)
         return city!
+    }
+    
+    public class func createNewCity(cityName:String, location:Coordinate) -> City {
+        let city = City(context: CoreDataManager.sharedManager.persistentContainer.viewContext)
+        city.name = cityName
+        city.isCurrentPosition = false
+        
+        let geoloc = Geoloc.geoloc(coordinate: location)
+        geoloc.city = city
+        city.geoloc = geoloc
+        
+        Weather.fetchDataWeather(coordonate: location, city: city)
+        
+        CoreDataManager.sharedManager.saveContext()
+        
+        return city
     }
 
 }

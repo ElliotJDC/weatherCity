@@ -4,7 +4,7 @@
         <attribute name="isCurrentPosition" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="geoloc" maxCount="1" deletionRule="Nullify" destinationEntity="Geoloc" inverseName="city" inverseEntity="Geoloc" syncable="YES"/>
-        <relationship name="weather" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Weather" inverseName="city" inverseEntity="Weather" syncable="YES"/>
+        <relationship name="weather" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Weather" inverseName="city" inverseEntity="Weather" syncable="YES"/>
     </entity>
     <entity name="Geoloc" representedClassName="Geoloc" syncable="YES">
         <attribute name="latitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>

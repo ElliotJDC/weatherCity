@@ -2,7 +2,7 @@
 //  City+CoreDataProperties.swift
 //  weatherCity
 //
-//  Created by Elliot Cunningham on 26/10/2018.
+//  Created by Elliot Cunningham on 27/10/2018.
 //  Copyright © 2018 Elliot Cunningham. All rights reserved.
 //
 //
@@ -17,9 +17,26 @@ extension City {
         return NSFetchRequest<City>(entityName: "City")
     }
 
-    @NSManaged public var name: String?
     @NSManaged public var isCurrentPosition: Bool
+    @NSManaged public var name: String?
     @NSManaged public var geoloc: Geoloc?
-    @NSManaged public var weather: Weather?
+    @NSManaged public var weather: NSSet?
+
+}
+
+// MARK: Generated accessors for weather
+extension City {
+
+    @objc(addWeatherObject:)
+    @NSManaged public func addToWeather(_ value: Weather)
+
+    @objc(removeWeatherObject:)
+    @NSManaged public func removeFromWeather(_ value: Weather)
+
+    @objc(addWeather:)
+    @NSManaged public func addToWeather(_ values: NSSet)
+
+    @objc(removeWeather:)
+    @NSManaged public func removeFromWeather(_ values: NSSet)
 
 }
