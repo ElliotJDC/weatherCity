@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     var scrennSize = UIScreen.main.bounds.size
     var addCityView: AddCityFromModal! = AddCityFromModal(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     var detailWeatherView: WeatherDetailView?
+    var blockOperation:BlockOperation?
 
     @IBOutlet weak var cityCollectionView: UICollectionView!
     @IBOutlet weak var navigationItemView: UINavigationItem!
@@ -37,7 +38,6 @@ class ViewController: UIViewController {
         self.scrennSize = UIScreen.main.bounds.size
         self.detailWeatherView?.frame = CGRect(x: 0, y: 0, width: self.scrennSize.width, height: self.scrennSize.height)
         self.addCityView = AddCityFromModal(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-        self.cityCollectionView.reloadData()
     }
     
     private func configureView() {
@@ -81,10 +81,43 @@ extension ViewController : NSFetchedResultsControllerDelegate {
     }
     
     
-    // if FRC city change we reload all cell
-    // need optimisation
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+            self.blockOperation = BlockOperation()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            guard let newIndexPath = newIndexPath else { break }
+            
+            blockOperation?.addExecutionBlock {
+                self.cityCollectionView.insertItems(at: [newIndexPath])
+            }
+        case .delete:
+            guard let indexPath = indexPath else { break }
+            
+            blockOperation?.addExecutionBlock {
+                self.cityCollectionView.deleteItems(at: [indexPath])
+            }
+        case .update:
+            guard let indexPath = indexPath else { break }
+            
+            blockOperation?.addExecutionBlock {
+                self.cityCollectionView.reloadItems(at: [indexPath])
+            }
+        case .move:
+            guard let indexPath = indexPath, let newIndexPath = newIndexPath else { return }
+            
+            blockOperation?.addExecutionBlock {
+                self.cityCollectionView.moveItem(at: indexPath, to: newIndexPath)
+            }
+        }
+    }
+    
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        self.cityCollectionView.reloadData()
+        self.cityCollectionView.performBatchUpdates({
+            self.blockOperation?.start()
+        }, completion: nil)
     }
     
     
