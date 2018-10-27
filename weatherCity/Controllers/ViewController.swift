@@ -93,25 +93,33 @@ extension ViewController : NSFetchedResultsControllerDelegate {
             guard let newIndexPath = newIndexPath else { break }
             
             blockOperation?.addExecutionBlock {
-                self.cityCollectionView.insertItems(at: [newIndexPath])
+                DispatchQueue.main.async {
+                    self.cityCollectionView.insertItems(at: [newIndexPath])
+                }
             }
         case .delete:
             guard let indexPath = indexPath else { break }
             
             blockOperation?.addExecutionBlock {
-                self.cityCollectionView.deleteItems(at: [indexPath])
+                DispatchQueue.main.async {
+                    self.cityCollectionView.deleteItems(at: [indexPath])
+                }
             }
         case .update:
             guard let indexPath = indexPath else { break }
             
             blockOperation?.addExecutionBlock {
-                self.cityCollectionView.reloadItems(at: [indexPath])
+                DispatchQueue.main.async {
+                    self.cityCollectionView.reloadItems(at: [indexPath])
+                }
             }
         case .move:
             guard let indexPath = indexPath, let newIndexPath = newIndexPath else { return }
             
             blockOperation?.addExecutionBlock {
-                self.cityCollectionView.moveItem(at: indexPath, to: newIndexPath)
+                DispatchQueue.main.async {
+                    self.cityCollectionView.moveItem(at: indexPath, to: newIndexPath)
+                }
             }
         }
     }
