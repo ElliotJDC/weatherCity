@@ -107,7 +107,7 @@ extension ViewController : UICollectionViewDataSource, UICollectionViewDelegate,
         cell.city = city?.name
         if let weather = weather {
             cell.weather = weather
-            cell.temperature = String(weather.temperature) + "°C"
+            cell.temperature = String(weather.temperature.rounded()) + "°C"
             cell.wind = "Vent " + String(weather.wind_average) + " Km/h"
             if weather.nebulocite < 25 {
                 cell.image = UIImage(named: "sun")
