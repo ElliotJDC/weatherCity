@@ -17,6 +17,7 @@ public struct Coordinate {
 
 class GeolocManager: NSObject {
     
+    // a singletown instance for call a unique Localization Manager in the App
     static let sharedManager:GeolocManager = GeolocManager()
     
     private let geocoder:CLGeocoder!
@@ -24,6 +25,7 @@ class GeolocManager: NSObject {
     
     public var lastCoordinateKnow:Coordinate?
     
+    // on manager start ask user permission for une GPS info if needed, and start to get current location
     override init() {
         geocoder = CLGeocoder()
         locationManager = CLLocationManager()
@@ -69,7 +71,7 @@ extension GeolocManager : CLLocationManagerDelegate {
         print("location manager start")
     }
     
-    // if find a location check if city exist if city is null we create new city
+    // if find a location check if city exist if city is null we create new city and fetch weather data for this city
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if locations.count != 0 {
             

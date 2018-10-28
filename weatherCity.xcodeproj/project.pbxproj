@@ -33,6 +33,7 @@
 		8B82D4BD21849A7000F8140B /* WeatherDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B82D4BC21849A7000F8140B /* WeatherDetailView.swift */; };
 		8B82D4C12184C07F00F8140B /* City+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B82D4C02184C07F00F8140B /* City+CoreDataProperties.swift */; };
 		8B82D4CD2184CD7100F8140B /* weatherCity.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8B26DBB02183564600AB439A /* weatherCity.xcdatamodeld */; };
+		8BA235E32186541F00485399 /* String+JsonToDict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA235E22186541F00485399 /* String+JsonToDict.swift */; };
 		96C87D8259BCB6FAA5359B02 /* Pods_weatherCityTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA7235ED174792A1CB159AD4 /* Pods_weatherCityTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +86,7 @@
 		8B82D4BA2184972500F8140B /* WeatherDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherDetailView.xib; sourceTree = "<group>"; };
 		8B82D4BC21849A7000F8140B /* WeatherDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailView.swift; sourceTree = "<group>"; };
 		8B82D4C02184C07F00F8140B /* City+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "City+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8BA235E22186541F00485399 /* String+JsonToDict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+JsonToDict.swift"; sourceTree = "<group>"; };
 		927DCE7D07B55ECDF3899323 /* Pods_weatherCity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weatherCity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B054BF6D881AF107C7EB9E89 /* Pods-weatherCityTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weatherCityTests.debug.xcconfig"; path = "Target Support Files/Pods-weatherCityTests/Pods-weatherCityTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D2322B461AFC66DE06943665 /* Pods-weatherCity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weatherCity.release.xcconfig"; path = "Target Support Files/Pods-weatherCity/Pods-weatherCity.release.xcconfig"; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 		8B478BC1218366B100632782 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				8BA235E22186541F00485399 /* String+JsonToDict.swift */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				8B26DBA32183564600AB439A /* Frameworks */,
 				8B26DBA42183564600AB439A /* Resources */,
 				192E69620AEC1FC0FC15B244 /* [CP] Embed Pods Frameworks */,
+				8BA235E4218655A400485399 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -452,6 +456,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		8BA235E4218655A400485399 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#Update build number with number of git commits if in release mode\nbuildNumber=$(git rev-list HEAD | wc -l | tr -d ' ')\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
+		};
 		9F06AE7661481C02AE8EA607 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -506,6 +527,7 @@
 				8B82D4BD21849A7000F8140B /* WeatherDetailView.swift in Sources */,
 				8B03DAF6218381910039EB52 /* City+CoreDataClass.swift in Sources */,
 				8B03DAF9218381910039EB52 /* Geoloc+CoreDataProperties.swift in Sources */,
+				8BA235E32186541F00485399 /* String+JsonToDict.swift in Sources */,
 				8B82D4B5218487BB00F8140B /* AddCityFromModal.swift in Sources */,
 				8B26DBAC2183564600AB439A /* ViewController.swift in Sources */,
 				8B03DAFF21838C360039EB52 /* WeatherHttpManager.swift in Sources */,

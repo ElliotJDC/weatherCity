@@ -43,6 +43,7 @@ class WeatherHttpManager: NSObject {
     
     override init() {
         super.init()
+        // on initialisation create a Moya provider with the weather API
         weatherProvider = MoyaProvider<WeatherApi>(endpointClosure: endpointClosure, requestClosure: requestClosure)
     }
     
@@ -63,6 +64,7 @@ class WeatherHttpManager: NSObject {
         
     }
     
+    // create failure function, take moya error and all request state for tranforme that an a simple dictionary
     func handleFailure(_ errors: Data?, statusCode: Int?, error: MoyaError?, failure: (_ errors: WeatherError?, _ statusCode: Int?, _ error: MoyaError?) -> Void) {
         if let data = errors {
             let json = String(data: data, encoding: String.Encoding.utf8)
@@ -81,6 +83,7 @@ class WeatherHttpManager: NSObject {
         let stringCoordinate = String(latitude) + "," + String(longitude)
         self.requestApi(.getWeatherJSON(stringCoordinate), success: { (data, status, response) in
             
+            // if data existe transform data on string (json string) , then transforme the string into dictionary
             guard let data = data,
                 let jsonString = String(data: data, encoding: String.Encoding.utf8),
                 let dictionary = jsonString.convertStringToDictionary() else {
@@ -89,10 +92,14 @@ class WeatherHttpManager: NSObject {
                 return
             }
             
+            // check if status code of request exist
+            
             guard let codeStatus:NSNumber = dictionary["request_state"] as? NSNumber else {
                 completion(nil)
                 return
             }
+            
+            // check if response status is egal to 200
             
             if codeStatus.isEqual(to: NSNumber(integerLiteral: 200)) {
                 completion(dictionary)
@@ -115,24 +122,6 @@ class WeatherHttpManager: NSObject {
     }
 
 }
-
-extension String {
-    func convertStringToDictionary() -> [String: AnyObject]? {
-        if let data = self.data(using: String.Encoding.utf8) {
-            do {
-                return try JSONSerialization.jsonObject(with: data, options: []) as? [String:AnyObject]
-            } catch let error as NSError {
-                print(error)
-            }
-        }
-        return nil
-    }
-}
-
-
-
-
-
 
 
 class WeatherError: NSObject, Mappable {

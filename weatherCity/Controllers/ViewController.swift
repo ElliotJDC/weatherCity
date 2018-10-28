@@ -134,7 +134,7 @@ extension ViewController : NSFetchedResultsControllerDelegate {
     
 }
 
-// MARK: cell view controller
+// MARK: cell data source and delegate
 
 extension ViewController : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
@@ -194,10 +194,10 @@ extension ViewController : UICollectionViewDataSource, UICollectionViewDelegate,
             detailWeatherView.currentCity = nil
             detailWeatherView.currentWeather = nil
             if let weather = cell.weather {
-                self.detailWeatherView?.currentWeather = weather
+                detailWeatherView.currentWeather = weather
             }
-            self.detailWeatherView?.currentCity = cell.cityObject
-            self.detailWeatherView?.reloadData()
+            detailWeatherView.currentCity = cell.cityObject
+            detailWeatherView.reloadData()
             self.view.addSubview(detailWeatherView)
         }
     }
@@ -206,6 +206,8 @@ extension ViewController : UICollectionViewDataSource, UICollectionViewDelegate,
 // MARK: Selector
 
 extension ViewController {
+    
+    // if add button is touch we show a simple modal enter new city name
     @objc func handleTapAddCityNavButton(_ sender:Any) -> Void {
         self.addCityView.delegate = self
         self.addCityView.cityTextFild.text = ""
@@ -216,7 +218,6 @@ extension ViewController {
 
 extension ViewController : AddCityDelegate {
     
-    // if add button is touch we show a simple modal enter new city name
     func handleTapAddCityButton(_ cityName: String, _ view: AddCityFromModal) {
         view.removeFromSuperview()
         
