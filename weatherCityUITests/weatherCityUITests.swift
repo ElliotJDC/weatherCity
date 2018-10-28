@@ -57,7 +57,7 @@ class weatherCityUITests: XCTestCase {
     }
     
     func testDetailWeatherViewIsNotPresentAfterCloseIt() {
-        app.collectionViews/*@START_MENU_TOKEN@*/.staticTexts["London"]/*[[".cells.staticTexts[\"London\"]",".staticTexts[\"London\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.twoFingerTap()
+        XCUIApplication().cells.firstMatch.twoFingerTap()
         app/*@START_MENU_TOKEN@*/.buttons["Fermer"]/*[[".otherElements[\"DetailWeatherViewID\"].buttons[\"Fermer\"]",".buttons[\"Fermer\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.twoFingerTap()
         
         let detailView = app.otherElements["DetailWeatherViewID"]
@@ -69,7 +69,7 @@ class weatherCityUITests: XCTestCase {
         
         let nbOfRow = app.cells.count
         
-        app.collectionViews/*@START_MENU_TOKEN@*/.staticTexts["London"]/*[[".cells.staticTexts[\"London\"]",".staticTexts[\"London\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.twoFingerTap()
+        XCUIApplication().cells.firstMatch.twoFingerTap()
         app/*@START_MENU_TOKEN@*/.buttons["Supprimer"]/*[[".otherElements[\"DetailWeatherViewID\"].buttons[\"Supprimer\"]",".buttons[\"Supprimer\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.twoFingerTap()
         
         let newNbOfRow = app.cells.count

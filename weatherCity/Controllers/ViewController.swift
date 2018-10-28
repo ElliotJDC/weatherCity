@@ -28,6 +28,12 @@ class ViewController: UIViewController {
         self.loadCitys()
         self.configureView()
         self.detailWeatherView = WeatherDetailView(frame: CGRect(x: 0, y: 0, width: self.scrennSize.width, height: self.scrennSize.height))
+        
+        let timerReloadLocalWeather = Timer.scheduledTimer(withTimeInterval: 900, repeats: true) { (_) in
+            self.cityCollectionView.reloadData()
+        }
+        
+        timerReloadLocalWeather.fire()
 
     }
     
