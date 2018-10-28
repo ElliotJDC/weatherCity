@@ -11,7 +11,7 @@ import XCTest
 
 class weatherCityTests: XCTestCase {
     
-    let context = CoreDataManager.sharedManager.persistentContainer.viewContext
+    let context = CoreDataManager.sharedManager.persistentContainerForTest.viewContext
     var cityObjectForTest:City!
     var geolocForTest:Geoloc!
     var weatherForTest:Weather!
@@ -50,10 +50,12 @@ class weatherCityTests: XCTestCase {
     }
 
     override func tearDown() {
+        super.tearDown()
         context.delete(cityObjectForTest)
         context.delete(weatherForTest)
         context.delete(geolocForTest)
     }
+
 
     func testCoreDataInit() {
         XCTAssertNotNil(cityObjectForTest)
@@ -76,6 +78,7 @@ class weatherCityTests: XCTestCase {
         let city = City.newCurrentCity(name: "Paris2ForTest", location: coordinate)
         
         XCTAssertNotNil(city)
+        XCTAssertNotEqual(city, cityObjectForTest)
     }
     
     func testRemoveAllWeatherRemoveAllWeather() {

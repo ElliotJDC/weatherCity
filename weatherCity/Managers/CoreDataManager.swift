@@ -37,20 +37,18 @@ class CoreDataManager: NSObject {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
-        return container
+        if ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] == nil {
+            return container
+        }
+        else {
+            return persistentContainerForTest
+        }
     }()
-    
-    lazy var persistentContainerForTest: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "CoreDataUnitTesting")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            fatalError("Unresolved error \(String(describing: error))")
-        })
-        return container
-    }()
-    
     
     func saveContext () {
-        let context = persistentContainer.viewContext
+        let context = (ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] == nil)
+            ? persistentContainer.viewContext
+            : persistentContainerForTest.viewContext
         if context.hasChanges {
             do {
                 try context.save()
@@ -62,5 +60,35 @@ class CoreDataManager: NSObject {
             }
         }
     }
+    
+    lazy var managedObjectModel: NSManagedObjectModel = {
+        let managedObjectModel = NSManagedObjectModel.mergedModel(from: [Bundle(for: type(of: self))])!
+        return managedObjectModel
+    }()
+    
+    lazy var persistentContainerForTest: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "weatherCity", managedObjectModel: self.managedObjectModel)
+        let description = NSPersistentStoreDescription()
+        description.type = NSInMemoryStoreType
+        description.shouldAddStoreAsynchronously = false
+        
+        container.persistentStoreDescriptions = [description]
+        container.loadPersistentStores {(description, error) in
+            
+            precondition(description.type == NSInMemoryStoreType)
+            
+            if let error = error {
+                fatalError("Creating an in-memory coordinator failed")
+            }
+        }
+        return container
+    }()
+    
+}
+
+// create a another store in Memory for UnitTest
+
+extension CoreDataManager {
+    
     
 }

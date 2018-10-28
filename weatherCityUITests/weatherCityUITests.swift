@@ -49,7 +49,7 @@ class weatherCityUITests: XCTestCase {
     
     func testOpenDetailWeatherViewOnTapACollectionViewCell() {
         
-        XCUIApplication().collectionViews/*@START_MENU_TOKEN@*/.staticTexts["London"]/*[[".cells.staticTexts[\"London\"]",".staticTexts[\"London\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.twoFingerTap()
+        XCUIApplication().cells.firstMatch.twoFingerTap()
         
         let detailView = app.otherElements["DetailWeatherViewID"]
         

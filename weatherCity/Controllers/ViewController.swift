@@ -93,39 +93,34 @@ extension ViewController : NSFetchedResultsControllerDelegate {
             guard let newIndexPath = newIndexPath else { break }
             
             blockOperation?.addExecutionBlock {
-                DispatchQueue.main.async {
-                    self.cityCollectionView.insertItems(at: [newIndexPath])
-                }
+                self.cityCollectionView.insertItems(at: [newIndexPath])
             }
         case .delete:
             guard let indexPath = indexPath else { break }
             
             blockOperation?.addExecutionBlock {
-                DispatchQueue.main.async {
-                    self.cityCollectionView.deleteItems(at: [indexPath])
-                }
+                self.cityCollectionView.deleteItems(at: [indexPath])
             }
         case .update:
             guard let indexPath = indexPath else { break }
             
             blockOperation?.addExecutionBlock {
-                DispatchQueue.main.async {
-                    self.cityCollectionView.reloadItems(at: [indexPath])
-                }
+                self.cityCollectionView.reloadItems(at: [indexPath])
             }
         case .move:
             guard let indexPath = indexPath, let newIndexPath = newIndexPath else { return }
             
             blockOperation?.addExecutionBlock {
-                DispatchQueue.main.async {
-                    self.cityCollectionView.moveItem(at: indexPath, to: newIndexPath)
-                }
+                self.cityCollectionView.moveItem(at: indexPath, to: newIndexPath)
             }
         }
     }
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.cityCollectionView.performBatchUpdates({
+            if ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil {
+                return
+            }
             self.blockOperation?.start()
         }, completion: nil)
     }
@@ -211,9 +206,6 @@ extension ViewController {
         self.view.addSubview(self.addCityView)
     }
     
-    @objc func handleTapInfoApiLabel(_ sender:Any) -> Void {
-        
-    }
 }
 
 extension ViewController : AddCityDelegate {

@@ -80,8 +80,7 @@ public class City: NSManagedObject {
             
             CoreDataManager.sharedManager.saveContext()
         }
-        
-        if UserDefaults.standard.bool(forKey: "kNeedReloadData") {
+        else if UserDefaults.standard.bool(forKey: "kNeedReloadData") {
             if !Connectivity.isConnectedToInternet {
                 Weather.fetchDataWeather(coordonate: location, city: city!)
             }
